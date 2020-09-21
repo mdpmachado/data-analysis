@@ -1,0 +1,17 @@
+app:
+  data-directory:
+    in: c:\tmp\data-file\in
+
+spring:
+  application:
+    name: data-analysis-extraction
+  cloud:
+    config:
+      uri: http://localhost:8888
+      username: dataanalysis
+      password: dataanalysis
+  messages:
+    basename: messages/messages
+    encoding: UTF-8
+  main:
+    allow-bean-definition-overriding: true
