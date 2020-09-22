@@ -25,11 +25,15 @@ public class Processor extends AbstractProducer {
 
     @KafkaListener(topics = Processor.TRANSFORMED_DATA_TOPIC, groupId = DATA_ANALYSIS_REPORT_KAFKA)
     public void schemaCreated(String json) {
+        log.info("Starting Report Generation...");
+
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             loadDatFileService.execute(objectMapper.readValue(json, IndicatorResult.class));
         } catch (IOException e) {
             log.info(e.getMessage(), e);
         }
+
+        log.info("Report Generated...");
     }
 }

@@ -33,7 +33,8 @@ public class ProcessorSchedule extends AbstractProducer {
 
             List<Future<Acummulator>> batchInProcess = extractDatFileService.execute();
             CompletableFuture.allOf(batchInProcess.toArray(new CompletableFuture[0])).get();
-            sendAcummulatorProcessed(batchInProcess);
+            List<Acummulator> accumulatorList = getAccumulatorList(batchInProcess);
+            send(EXTRACTED_DATA_TOPIC, accumulatorList);
         } catch (Exception e) {
             log.info(e.getMessage(), e);
         }
@@ -41,16 +42,18 @@ public class ProcessorSchedule extends AbstractProducer {
         log.info("Dat file processed.");
     }
 
-    private void sendAcummulatorProcessed(List<Future<Acummulator>> batchProcessed) throws Exception {
-        List<Acummulator> acummulatorList = new LinkedList<>();
-        batchProcessed.forEach(res -> {
+    private List<Acummulator> getAccumulatorList(List<Future<Acummulator>> batchProcessed) {
+        List<Acummulator> accumulatorList = new LinkedList<>();
+        batchProcessed.stream().map(res -> {
             try {
-                acummulatorList.add(res.get());
+                accumulatorList.add(res.get());
             } catch (InterruptedException | ExecutionException e) {
                 log.info(e.getMessage(), e);
             }
+
+            return null;
         });
 
-        send(EXTRACTED_DATA_TOPIC, acummulatorList);
+        return accumulatorList;
     }
 }
