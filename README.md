@@ -39,21 +39,6 @@ Responsável por realizar os calculaos para cada indicador.
 Responsável por gerar o relatório.
 
 
-## Exemplo de uso
-
-*data-analysis-config
-
-*data-analysis-eureka
-
-*data-analysis-zuul
-
-*data-analysis-extraction
-
-*data-analysis-transformation
-
-*data-analysis-zuul
-
-
 ## Configuração para Desenvolvimento
 
 Excecutar o seguinte comando do maven para cada aplicação 
