@@ -43,10 +43,10 @@ Responsável por gerar o relatório .done.dat.
 
 ## Configuração para Desenvolvimento
 
-<b>Criar diretorio e arquivo de entrada.</b><br>
+<b>Criar diretório e arquivo de entrada.</b><br>
 ${user.home}\data\in<br>
 
-<b>Criar diretorio para arquivo de saída.</b><br>
+<b>Criar diretório para arquivo de saída.</b><br>
 ${user.home}\data\out
 
 <b>Alterar no application.yml do serviço \data-analysis-config\ o diretorio onde o \data-analysis-config-repo\ se encontra.</b><br>
@@ -63,7 +63,7 @@ http://ftp.unicamp.br/pub/apache/kafka/2.6.0/kafka_2.12-2.6.0.tgz
 
 <b>2 - Extrair o diretório</b>
 
-<b>3 - Entrar no diretorio principal e abrir duas abas do terminal, e executar os seguintes comandos em cada aba.</b><br>
+<b>3 - Entrar no diretório principal e abrir duas abas do terminal, e executar os seguintes comandos em cada aba.</b><br>
 ```sh
 .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties 
 .\bin\windows\kafka-server-start.bat .\config\server.properties
