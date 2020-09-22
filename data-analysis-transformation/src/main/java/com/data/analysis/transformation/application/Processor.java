@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 @Slf4j
 @Component
-public class ProcessorSchedule extends AbstractProducer {
+public class Processor extends AbstractProducer {
 
     public final static String EXTRACTED_DATA_TOPIC = "EXTRACTED_DATA_TOPIC";
     public final static String TRANSFORMED_DATA_TOPIC = "TRANSFORMED_DATA_TOPIC";
@@ -21,18 +21,18 @@ public class ProcessorSchedule extends AbstractProducer {
 
     private final TransformDatFileService transformDatFileService;
 
-    public ProcessorSchedule(TransformDatFileService transformDatFileService) {
+    public Processor(TransformDatFileService transformDatFileService) {
         this.transformDatFileService = transformDatFileService;
     }
 
-    @KafkaListener(topics = ProcessorSchedule.EXTRACTED_DATA_TOPIC, groupId = DATA_ANALYSIS_TRANSFORMATION_KAFKA)
+    @KafkaListener(topics = Processor.EXTRACTED_DATA_TOPIC, groupId = DATA_ANALYSIS_TRANSFORMATION_KAFKA)
     public void schemaCreated(String json) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             IndicatorResult indicatorResult = transformDatFileService.execute(Arrays.asList(objectMapper.readValue(json, Acummulator[].class)));
             send(TRANSFORMED_DATA_TOPIC, indicatorResult);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.info(e.getMessage(), e);
         }
     }
 }

@@ -12,24 +12,24 @@ import java.io.IOException;
 
 @Slf4j
 @Component
-public class ProcessorSchedule extends AbstractProducer {
+public class Processor extends AbstractProducer {
 
     public final static String TRANSFORMED_DATA_TOPIC = "TRANSFORMED_DATA_TOPIC";
     public static final String DATA_ANALYSIS_REPORT_KAFKA = "data-analysis-report-kafka";
 
     private final LoadDatFileService loadDatFileService;
 
-    public ProcessorSchedule(LoadDatFileService loadDatFileService) {
+    public Processor(LoadDatFileService loadDatFileService) {
         this.loadDatFileService = loadDatFileService;
     }
 
-    @KafkaListener(topics = ProcessorSchedule.TRANSFORMED_DATA_TOPIC, groupId = DATA_ANALYSIS_REPORT_KAFKA)
+    @KafkaListener(topics = Processor.TRANSFORMED_DATA_TOPIC, groupId = DATA_ANALYSIS_REPORT_KAFKA)
     public void schemaCreated(String json) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             loadDatFileService.execute(objectMapper.readValue(json, IndicatorResult.class));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.info(e.getMessage(), e);
         }
     }
 }

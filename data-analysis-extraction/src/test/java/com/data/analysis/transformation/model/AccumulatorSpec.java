@@ -1,23 +1,25 @@
 package com.data.analysis.transformation.model;
 
+import com.data.analysis.extraction.domain.model.Acummulator;
 import com.data.analysis.extraction.domain.model.SalesmanResult;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mock;
 
 import java.math.BigDecimal;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 
-public class SalesmanResultSpec {
+public class AccumulatorSpec {
 
     @Test
-    public void when_addSaleValue() {
-        SalesmanResult salesManResult = SalesmanResult.builder().build();
+    public void when_updateBestSale() {
+        Acummulator acummulator = Acummulator.builder().build();
 
-        salesManResult.addSaleValue(BigDecimal.TEN);
-        salesManResult.addSaleValue(BigDecimal.TEN);
+        acummulator.updateBestSale(1l, BigDecimal.ONE);
+        acummulator.updateBestSale(2l, BigDecimal.TEN);
 
-        Assert.assertThat(salesManResult.getTotalSale(), is(equalTo(BigDecimal.valueOf(20L))));
+        Assert.assertThat(acummulator.getBestSaleId(), is(equalTo(2L)));
     }
 }

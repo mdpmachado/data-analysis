@@ -1,0 +1,15 @@
+server:
+  port: 8888
+
+spring:
+  profiles:
+    active: native
+  application:
+    name: data-analysis-config-server
+  cloud:
+    bus:
+      enabled: true
+    config:
+      server:
+        native:
+          search-locations: file:///C:/projetos/test-dbc/data-analysis-config-repo/localhost/

@@ -35,7 +35,7 @@ public class ProcessorSchedule extends AbstractProducer {
             CompletableFuture.allOf(batchInProcess.toArray(new CompletableFuture[0])).get();
             sendAcummulatorProcessed(batchInProcess);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.info(e.getMessage(), e);
         }
 
         log.info("Dat file processed.");
@@ -47,7 +47,7 @@ public class ProcessorSchedule extends AbstractProducer {
             try {
                 acummulatorList.add(res.get());
             } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
+                log.info(e.getMessage(), e);
             }
         });
 
