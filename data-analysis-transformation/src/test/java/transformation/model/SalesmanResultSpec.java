@@ -1,6 +1,6 @@
 package transformation.model;
 
-import com.data.analysis.extraction.domain.model.SalesmanResult;
+import com.data.analysis.transformation.domain.model.SalesmanResult;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -29,12 +31,20 @@ public class ExtractDatFileService {
     @Value("${app.data-directory.in}")
     private String inDirectory;
 
-    public List<Future<Acummulator>> execute() throws IOException {
+    private final MessageSendingService messageSendingService;
+
+    public ExtractDatFileService(MessageSendingService messageSendingService) {
+        this.messageSendingService = messageSendingService;
+    }
+
+    public void execute() throws Exception {
         log.info("Loading files from {}.", inDirectory);
         List<Future<Acummulator>> batchInProcess = new ArrayList<>();
         Files.list(Paths.get(inDirectory)).forEach(path ->batchInProcess.add(read(path)));
 
-        return batchInProcess;
+        CompletableFuture.allOf(batchInProcess.toArray(new CompletableFuture[0])).get();
+        List<Acummulator> accumulatorList = getAccumulatorList(batchInProcess);
+        messageSendingService.send(accumulatorList);
     }
 
     private Future<Acummulator> read(Path path) {
@@ -95,5 +105,16 @@ public class ExtractDatFileService {
         } else {
             acummulator.getSalesmenResults().add(salesmanResult);
         }
+    }
+
+    private List<Acummulator> getAccumulatorList(List<Future<Acummulator>> batchProcessed) {
+        return batchProcessed.stream().map(res -> {
+            try {
+                return res.get();
+            } catch (InterruptedException | ExecutionException e) {
+                log.error(e.getMessage(), e);
+                return null;
+            }
+        }).collect(Collectors.toList());
     }
 }

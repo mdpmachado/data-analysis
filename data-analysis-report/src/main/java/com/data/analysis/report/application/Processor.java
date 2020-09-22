@@ -2,7 +2,7 @@ package com.data.analysis.report.application;
 
 import com.data.analysis.report.domain.model.IndicatorResult;
 import com.data.analysis.report.domain.service.LoadDatFileService;
-import com.data.analysis.report.infra.kafka.AbstractProducer;
+import com.data.analysis.report.infra.constantes.Constantes;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -12,10 +12,7 @@ import java.io.IOException;
 
 @Slf4j
 @Component
-public class Processor extends AbstractProducer {
-
-    public final static String TRANSFORMED_DATA_TOPIC = "TRANSFORMED_DATA_TOPIC";
-    public static final String DATA_ANALYSIS_REPORT_KAFKA = "data-analysis-report-kafka";
+public class Processor {
 
     private final LoadDatFileService loadDatFileService;
 
@@ -23,7 +20,7 @@ public class Processor extends AbstractProducer {
         this.loadDatFileService = loadDatFileService;
     }
 
-    @KafkaListener(topics = Processor.TRANSFORMED_DATA_TOPIC, groupId = DATA_ANALYSIS_REPORT_KAFKA)
+    @KafkaListener(topics = Constantes.TRANSFORMED_DATA_TOPIC, groupId = Constantes.DATA_ANALYSIS_REPORT_KAFKA)
     public void schemaCreated(String json) {
         log.info("Starting Report Generation...");
 

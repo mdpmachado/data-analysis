@@ -1,4 +1,4 @@
-package com.data.analysis.extraction.domain.model;
+package com.data.analysis.transformation.domain.model;
 
 
 import lombok.*;

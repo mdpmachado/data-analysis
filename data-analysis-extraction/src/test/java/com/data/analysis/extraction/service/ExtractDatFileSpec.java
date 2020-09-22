@@ -30,7 +30,7 @@ public class ExtractDatFileSpec {
     }
 
     @Test
-    public void when_accumulateSalesmen() throws IOException {
+    public void when_accumulateSalesmen() throws Exception {
         final String line = "001;1234567891235;Paulo;40000.99";
         service.execute();
 

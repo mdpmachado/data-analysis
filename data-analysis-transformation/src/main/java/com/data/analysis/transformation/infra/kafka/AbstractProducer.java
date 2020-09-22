@@ -1,4 +1,4 @@
-package com.data.analysis.extraction.infra.kafka;
+package com.data.analysis.transformation.infra.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,9 @@
-package com.data.analysis.extraction.domain.service;
+package com.data.analysis.transformation.domain.service;
 
-import com.data.analysis.extraction.domain.model.Acummulator;
-import com.data.analysis.extraction.domain.model.IndicatorResult;
-import com.data.analysis.extraction.domain.model.SalesmanResult;
+import com.data.analysis.transformation.domain.model.Acummulator;
+import com.data.analysis.transformation.domain.model.IndicatorResult;
+import com.data.analysis.transformation.domain.model.SalesmanResult;
+import com.data.analysis.transformation.infra.kafka.AbstractProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,15 @@ import java.util.Set;
 
 @Slf4j
 @Service
-public class TransformDatFileService {
+public class TransformDatFileService extends AbstractProducer {
 
-    public IndicatorResult execute(List<Acummulator> batchInProcess) {
+    private final MessageSendingService messageSendingService;
+
+    public TransformDatFileService(MessageSendingService messageSendingService) {
+        this.messageSendingService = messageSendingService;
+    }
+
+    public void execute(List<Acummulator> batchInProcess) throws Exception {
         log.info("Transform data.");
         Set<String> salesmenCpf = new HashSet<>();
         Set<String> clientsCnpj = new HashSet<>();
@@ -44,11 +51,17 @@ public class TransformDatFileService {
             }
         }
 
-        return IndicatorResult.builder()
+        IndicatorResult indicatorResult = IndicatorResult.builder()
                 .countClients(clientsCnpj.size())
                 .countSalesmen(salesmenCpf.size())
                 .bestSale(bestSaleId)
                 .worseSalesman(salesmanResults.stream().min(Comparator.comparing(SalesmanResult::getTotalSale)).get().getName())
                 .build();
+
+        sendIndicatorToReport(indicatorResult);
+    }
+
+    private void sendIndicatorToReport(IndicatorResult indicatorResult) throws Exception {
+        messageSendingService.sendIndicatorToReport(indicatorResult);
     }
 }

@@ -1,3 +1,7 @@
+app:
+  kafka:
+    group-id: data-analysis-transformation-kafka
+
 spring:
   application:
     name: data-analysis-transformation
