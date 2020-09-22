@@ -1,4 +1,4 @@
-package com.data.analysis.extraction;
+package com.data.analysis.transformation;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -8,9 +8,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Slf4j
 @EnableScheduling
 @SpringBootApplication
-public class Application {
+public class DataAnalysisTransformationApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(DataAnalysisTransformationApplication.class, args);
     }
 }

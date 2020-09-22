@@ -8,9 +8,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Slf4j
 @EnableScheduling
 @SpringBootApplication
-public class Application {
+public class DataAnalysisReportApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(DataAnalysisReportApplication.class, args);
     }
 }

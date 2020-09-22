@@ -1,13 +1,12 @@
 package com.data.analysis.extraction.application;
 
-import com.data.analysis.extraction.infra.kafka.AbstractProducer;
 import com.data.analysis.extraction.domain.model.Acummulator;
 import com.data.analysis.extraction.domain.service.ExtractDatFileService;
+import com.data.analysis.extraction.infra.kafka.AbstractProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -27,7 +26,7 @@ public class ProcessorSchedule extends AbstractProducer {
     }
 
     @Scheduled(cron = "0 */2 * * * *")
-    public void execute() throws IOException, InterruptedException {
+    public void execute() {
         log.info("Starting Dat File processing engine...");
 
         try {
