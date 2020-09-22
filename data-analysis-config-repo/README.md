@@ -1,4 +1,4 @@
-# OnValuate Configs
+# Data Analysis Configs
 
-OnValuate Configs
-Repositório responsável por manter os arquivos de configuração do OnValuate Config Server 
+Data Analysis Configs
+Repositório responsável por manter os arquivos de configuração do Data Analysis Config Server 
