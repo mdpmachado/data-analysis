@@ -7,21 +7,15 @@ Realiza a leitura de um arquivo .dat extraindo os dados e os tratando de acordo 
 
 > <b>data-analysis-config</b>
 
-Responsável pelo geranciamento das propriedades externas de cada aplicação.
+Configurações de todos os microserviços REST.
 
 > <b>data-analysis-eureka</b>
 
-Responsável pelos registros criados. <br>
-Cada serviço, quando está online, se registra no Service Registry. Quando algum outro serviço deseja se comunicar com um serviço já registrado, eles perguntam ao servidor Eureka o url de base desse serviço.
+Projeto que disponibiliza o status de todos os microserviços registrados (clientes).
 
 > <b>data-analysis-zuul</b>
 
-Um ambiente de microsserviço precisa de um gateway. Um Gateway é a única entidade exposta ao mundo externo, que permite o acesso a microsserviços e faz mais. Um Gateway poderia fazer
-
-*Medição de API<br>
-*Autenticação / autorização centralizada<br>
-*Balanceamento de carga<br>
-*etc<br>
+ Roteamento de requests dos microserviços.
 
 > <b>data-analysis-extraction</b>
 
