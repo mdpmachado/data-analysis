@@ -25,22 +25,39 @@ Um ambiente de microsserviço precisa de um gateway. Um Gateway é a única enti
 
 > data-analysis-extraction
 
-Responsável pela leitura e extração dos dados de acordo com o id.
+Responsável pela leitura do arquivo arquivo de entrada .dat e extração dos dados de acordo com o id.
+
+Exemplo arquivo de entrada.<br>
+001;1234567891234;Pedro;50000.<br>
+002;2345675433444345;Eduardo Pereira;Rural.<br>
+003;08;[1-34-10,2-33-1.50,3-40-0.10];Paulo.<br>
 
 > data-analysis-transformation
 
-Responsável por realizar os calculaos para cada indicador.
+Responsável por realizar os calculos de cada indicador.
 
 > data-analysis-report
 
-Responsável por gerar o relatório.
+Responsável por gerar o relatório .done.dat.
 
 
 ## Configuração para Desenvolvimento
 
-Excecutar o seguinte comando do maven para cada aplicação 
+Excecutar o seguinte comando do maven em cada aplicação 
 
-*mvn clean package install
+* mvn clean package install
+
+> Procedimento para instalação do Kafka
+
+1 - Realizar o download do Kafka
+http://ftp.unicamp.br/pub/apache/kafka/2.6.0/kafka_2.12-2.6.0.tgz
+
+2 - Extrair o diretório
+
+3 - Entrar no diretorio principal e abrir duas abas do terminal, e executar os seguintes comandos em cada aba.
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties <br>
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
 
 > Procedimento para subir a aplicação utilizando o Docker
 
