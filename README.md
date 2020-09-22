@@ -1,5 +1,5 @@
 # Sistema de análise de dados
-> Sistema para extração, transformação e resultado.
+> Teste de conhecimento DBC Company.
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
