@@ -18,10 +18,10 @@ Cada serviço, quando está online, se registra no Service Registry. Quando algu
 
 Um ambiente de microsserviço precisa de um gateway. Um Gateway é a única entidade exposta ao mundo externo, que permite o acesso a microsserviços e faz mais. Um Gateway poderia fazer
 
-*Medição de API
-*Autenticação / autorização centralizada
-*Balanceamento de carga
-*etc
+*Medição de API<br>
+*Autenticação / autorização centralizada<br>
+*Balanceamento de carga<br>
+*etc<br>
 
 > data-analysis-extraction
 
