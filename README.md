@@ -49,7 +49,7 @@ Excecutar o seguinte comando do maven em cada aplicação
 
 > Procedimento para instalação do Kafka
 
-1 - Realizar o download do Kafka
+1 - Realizar o download do Kafka<br>
 http://ftp.unicamp.br/pub/apache/kafka/2.6.0/kafka_2.12-2.6.0.tgz
 
 2 - Extrair o diretório
