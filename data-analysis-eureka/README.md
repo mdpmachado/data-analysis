@@ -1,3 +1,3 @@
-# OnValuate Eureka Server
+# Data Analysis Eureka Server
 
-OnValuate Eureka Server, aplicação responsável pela descoberta de serviços.
+Data Analysis Eureka Server, aplicação responsável pela descoberta de serviços.
