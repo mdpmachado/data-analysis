@@ -6,7 +6,7 @@ Realiza a transformação dos dados executando determinados calculos para coleta
 
 ![](../header.png)
 
-## Instalação
+## Microsserviços
 
 > data-analysis-config
 
@@ -32,9 +32,12 @@ Um ambiente de microsserviço precisa de um gateway. Um Gateway é a única enti
 
 ## Exemplo de uso
 
-Alguns exemplos interessantes e úteis sobre como seu projeto pode ser utilizado. Adicione blocos de códigos e, se necessário, screenshots.
-
-_Para mais exemplos, consulte a [Wiki][wiki]._ 
+*data-analysis-config
+*data-analysis-eureka
+*data-analysis-zuul
+*data-analysis-extraction
+*data-analysis-transformation
+*data-analysis-zuul
 
 ## Configuração para Desenvolvimento
 
