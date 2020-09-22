@@ -34,7 +34,7 @@ public class Processor extends AbstractProducer {
             IndicatorResult indicatorResult = transformDatFileService.execute(Arrays.asList(objectMapper.readValue(json, Acummulator[].class)));
             send(TRANSFORMED_DATA_TOPIC, indicatorResult);
         } catch (Exception e) {
-            log.info(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
 
         log.info("Data Transformed...");

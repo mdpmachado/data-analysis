@@ -31,7 +31,7 @@ public class Processor extends AbstractProducer {
         try {
             loadDatFileService.execute(objectMapper.readValue(json, IndicatorResult.class));
         } catch (IOException e) {
-            log.info(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
 
         log.info("Report Generated...");

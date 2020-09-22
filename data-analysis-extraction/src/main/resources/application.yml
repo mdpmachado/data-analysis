@@ -1,6 +1,6 @@
 app:
   data-directory:
-    in: c:\tmp\data-file\in
+    in: ${user.home}\data\in
 
 spring:
   application:

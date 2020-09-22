@@ -7,11 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -36,24 +36,20 @@ public class ProcessorSchedule extends AbstractProducer {
             List<Acummulator> accumulatorList = getAccumulatorList(batchInProcess);
             send(EXTRACTED_DATA_TOPIC, accumulatorList);
         } catch (Exception e) {
-            log.info(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
 
         log.info("Dat file processed.");
     }
 
     private List<Acummulator> getAccumulatorList(List<Future<Acummulator>> batchProcessed) {
-        List<Acummulator> accumulatorList = new LinkedList<>();
-        batchProcessed.stream().map(res -> {
+        return batchProcessed.stream().map(res -> {
             try {
-                accumulatorList.add(res.get());
+                return res.get();
             } catch (InterruptedException | ExecutionException e) {
-                log.info(e.getMessage(), e);
+                log.error(e.getMessage(), e);
+                return null;
             }
-
-            return null;
-        });
-
-        return accumulatorList;
+        }).collect(Collectors.toList());
     }
 }

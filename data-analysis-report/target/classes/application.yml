@@ -1,6 +1,6 @@
 app:
   data-directory:
-    out: c:\tmp\data-file\out
+    out: ${user.home}\data\out
 
 spring:
   application:
