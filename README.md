@@ -11,7 +11,7 @@ Responsável pelo geranciamento das propriedades externas de cada aplicação.
 
 > data-analysis-eureka
 
-Responsável pelos registros criados. 
+Responsável pelos registros criados. <br>
 Cada serviço, quando está online, se registra no Service Registry. Quando algum outro serviço deseja se comunicar com um serviço já registrado, eles perguntam ao servidor Eureka o url de base desse serviço.
 
 > data-analysis-zuul
@@ -43,7 +43,11 @@ Responsável por gerar o relatório .done.dat.
 
 ## Configuração para Desenvolvimento
 
+Criar diretorio e arquivo de entrada.<br>
+${user.home}\data\in<br>
 
+Criar diretorio para arquivo de saída.<br>
+${user.home}\data\out
 
 Alterar no application.yml do serviço "data-analysis-config" o diretorio onde o data-analysis-config-repo se encontra.<br>
 config:<br>
