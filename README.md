@@ -1,7 +1,7 @@
 # Sistema de análise de dados
 > <b>Teste de conhecimento DBC Company</b>.
 
-Realiza a leitura de um arquivo .dat extraindo os dados e os tratando de acordo com o seu id, fazendo a transformação dos dados e executando determinados calculos para coletar quantidade de clientes e vendedores, venda mais cara e pior vendedor para o relatório de saída. 
+Realiza a leitura de um lote com vários arquivos .dat extraindo os dados e os tratando de acordo com o seu id, fazendo a transformação dos dados e executando determinados calculos para coletar quantidade de clientes e vendedores, venda mais cara e pior vendedor para o relatório de saída. 
 
 ## Microsserviços
 
