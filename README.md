@@ -43,6 +43,14 @@ Responsável por gerar o relatório .done.dat.
 
 ## Configuração para Desenvolvimento
 
+
+
+Alterar no application.yml do serviço "data-analysis-config" o diretorio onde o data-analysis-config-repo se encontra.<br>
+config:<br>
+      server:<br>
+        native:<br>
+          search-locations: file:///C:/projetos/test-dbc/data-analysis-config-repo/localhost/<br>
+
 Excecutar o seguinte comando do maven em cada aplicação 
 
 * mvn clean package install
