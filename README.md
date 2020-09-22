@@ -54,7 +54,7 @@ http://ftp.unicamp.br/pub/apache/kafka/2.6.0/kafka_2.12-2.6.0.tgz
 
 2 - Extrair o diretório
 
-3 - Entrar no diretorio principal e abrir duas abas do terminal, e executar os seguintes comandos em cada aba.
+3 - Entrar no diretorio principal e abrir duas abas do terminal, e executar os seguintes comandos em cada aba.<br>
 .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties <br>
 .\bin\windows\kafka-server-start.bat .\config\server.properties
 
