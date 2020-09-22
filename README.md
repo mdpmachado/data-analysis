@@ -49,7 +49,7 @@ ${user.home}\data\in<br>
 Criar diretorio para arquivo de saída.<br>
 ${user.home}\data\out
 
-Alterar no application.yml do serviço "data-analysis-config" o diretorio onde o data-analysis-config-repo se encontra.<br>
+Alterar no application.yml do serviço \data-analysis-config\ o diretorio onde o \data-analysis-config-repo\ se encontra.<br>
 config:server:native:search-locations: file:///C:/projetos/test-dbc/data-analysis-config-repo/localhost/<br>
 
 Excecutar o seguinte comando do maven em cada aplicação 
