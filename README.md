@@ -10,13 +10,12 @@ Realiza a transformação dos dados executando determinados calculos para coleta
 
 > data-analysis-config
 
-A configuração do Spring Cloud fornece suporte para configuração de externalização em sistemas distribuídos. Com o Config Server, você tem um local central para gerenciar propriedades externas para aplicativos em todos os ambientes.
-
-Você pode ler em detalhes sobre a configuração do Spring Cloud aqui - http://cloud.spring.io/spring-cloud-config/
+Responsável pelo geranciamento das propriedades externas de cada aplicação.
 
 > data-analysis-eureka
 
- Os microsserviços são parecidos com a plataforma SOA, onde existem vários serviços. Cada serviço, quando está online, se registra no Service Registry. Quando algum outro serviço deseja se comunicar com um serviço já registrado, eles perguntam ao servidor Eureka o url de base desse serviço. Várias instâncias do mesmo serviço podem ser registradas no Eureka; nesse caso, o Eureka pode ajudar no balanceamento de carga.
+Responsável pelos registros criados. 
+Cada serviço, quando está online, se registra no Service Registry. Quando algum outro serviço deseja se comunicar com um serviço já registrado, eles perguntam ao servidor Eureka o url de base desse serviço.
 
 > data-analysis-zuul
 
@@ -26,7 +25,6 @@ Um ambiente de microsserviço precisa de um gateway. Um Gateway é a única enti
 *Autenticação / autorização centralizada
 *Balanceamento de carga
 *etc
-
 
 > data-analysis-extraction
 
