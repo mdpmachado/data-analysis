@@ -3,8 +3,6 @@
 
 Realiza a leitura de um arquivo .dat extraindo os dados e os tratando de acordo com o seu id, fazendo a transformação dos dados e executando determinados calculos para coletar quantidade de clientes e vendedores, venda mais cara e pior vendedor para o relatório de saída. 
 
-![](../header.png)
-
 ## Microsserviços
 
 > data-analysis-config
@@ -44,39 +42,26 @@ Excecutar o seguinte comando do maven para cada aplicação
 
 *mvn clean package install
 
-> DOCKER
+> Procedimento para subir a aplicação utilizando o Docker
 
 Excutar pelo terminal do docker os serguinte comandos.
 
 docker network create dbc
 
-docker build -t data-analysis-config-server .
-
+docker build -t data-analysis-config-server . <br>
 docker run --name data-analysis-config-server --network=dbc -p 8888:8888 -d data-analysis-config-server
 
-
-docker build -t data-analysis-eureka-server .
-
+docker build -t data-analysis-eureka-server . <br>
 docker run --name data-analysis-eureka-server --network=dbc -p 8761:8761 -d data-analysis-eureka-server
 
-
-docker build -t data-analysis-zuul-server .
-
+docker build -t data-analysis-zuul-server . <br>
 docker run --name data-analysis-zuul-server --network=dbc -p 8000:8000 -d data-analysis-zuul-server
 
-
-docker build -t data-analysis-extaction .
-
+docker build -t data-analysis-extaction . <br>
 docker run --name data-analysis-extaction --network=dbc -p 8181:8181 -d data-analysis-extaction
 
-
-docker build -t data-analysis-tranformation .
-
+docker build -t data-analysis-tranformation . <br>
 docker run --name data-analysis-tranformation --network=dbc -p 8183:8183 -d data-analysis-tranformation
 
-
-docker build -t data-analysis-report .
+docker build -t data-analysis-report . <br>
 docker run --name data-analysis-report --network=dbc -p 8182:8182 -d data-analysis-report
-
-
-
