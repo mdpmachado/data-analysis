@@ -33,10 +33,15 @@ Um ambiente de microsserviço precisa de um gateway. Um Gateway é a única enti
 ## Exemplo de uso
 
 *data-analysis-config
+
 *data-analysis-eureka
+
 *data-analysis-zuul
+
 *data-analysis-extraction
+
 *data-analysis-transformation
+
 *data-analysis-zuul
 
 ## Configuração para Desenvolvimento
