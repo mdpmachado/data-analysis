@@ -76,21 +76,34 @@ Excutar pelo terminal do docker os serguinte comandos.
 ```sh
 docker network create dbc
 
+-- Entrar no diretório do serviço e executar 
 docker build -t data-analysis-config-server . 
 docker run --name data-analysis-config-server --network=dbc -p 8888:8888 -d data-analysis-config-server
+docker logs data-analysis-config-server
 
+-- Entrar no diretório do serviço e executar
 docker build -t data-analysis-eureka-server . 
 docker run --name data-analysis-eureka-server --network=dbc -p 8761:8761 -d data-analysis-eureka-server
+docker logs data-analysis-eureka-server
 
+-- Entrar no diretório do serviço e executar
 docker build -t data-analysis-zuul-server . 
 docker run --name data-analysis-zuul-server --network=dbc -p 8000:8000 -d data-analysis-zuul-server
+docker logs data-analysis-zuul-server
 
+-- Entrar no diretório do serviço e executar
 docker build -t data-analysis-extaction . 
 docker run --name data-analysis-extaction --network=dbc -p 8181:8181 -d data-analysis-extaction
+docker logs data-analysis-extaction
 
+-- Entrar no diretório do serviço e executar
 docker build -t data-analysis-tranformation . 
 docker run --name data-analysis-tranformation --network=dbc -p 8183:8183 -d data-analysis-tranformation
+docker logs data-analysis-tranformation
 
+-- Entrar no diretório do serviço e executar
 docker build -t data-analysis-report . 
 docker run --name data-analysis-report --network=dbc -p 8182:8182 -d data-analysis-report
+docker logs data-analysis-report
+
 ```
